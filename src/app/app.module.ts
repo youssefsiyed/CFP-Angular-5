@@ -7,6 +7,7 @@ import { DragulaModule } from 'ng2-dragula';   // drag
 import { NgSpinKitModule } from 'ng-spin-kit'  //loading
 import { Ng2SearchPipeModule } from 'ng2-search-filter';  // search filter
 import { NgPipesModule } from 'ngx-pipes';  // pipes
+import { AngularFontAwesomeModule } from 'angular-font-awesome'; //font-awesome
 
 import { AppComponent } from './app.component';
 import { TalkComponent } from './components/talk/talk.component';
@@ -47,6 +48,7 @@ const appRoutes : Routes =[
   imports: [
     BrowserModule,
     FormsModule,
+    AngularFontAwesomeModule,
     HttpClientModule,
     DragulaModule,
     NgPipesModule,

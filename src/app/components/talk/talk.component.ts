@@ -1,6 +1,7 @@
 import { Component, OnInit , Input } from '@angular/core';
 import { TalkService } from '../../services/talk.service';
 import { Talk } from '../../models/Talk';
+import { error } from 'util';
 
 
 
@@ -15,6 +16,9 @@ export class TalkComponent implements OnInit {
   showSpinner: boolean =true;
   show: boolean =true;
   showCheck: boolean =false;
+  term : string;
+  term2 : string;
+  termSearch : string;
 
 
   constructor( private talkService : TalkService) { }
@@ -26,10 +30,11 @@ toggle() {
 }
 ///////////////////////////////////////////////////////////////////
   ngOnInit() {
-    this.talkService.getTalks().subscribe(talk => {
+    this.talkService.getTalks().subscribe
+    (talk => {
       this.talk = talk;
       this.showSpinner = false;
-    })
+    },(error)=> console.log('Erreur Detected!!!'))
   }
 
 }

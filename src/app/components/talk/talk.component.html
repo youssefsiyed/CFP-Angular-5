@@ -6,15 +6,17 @@
   <div>
   <input type="text" class="form-control" [(ngModel)]="term" placeholder="Filter Talk...">
   </div>
-  <!-- <br/>
-  <span class="badge badge-warning float-right">Track Filter:</span>
-  <div>
-  <input type="text" class="form-control" [(ngModel)]="termSearch" placeholder="Filter Track...">
-  </div> -->
   <br/>
+  <!-- <span class="badge badge-info float-right">Track Filter:</span>
+  <br/>
+  <div>
+  <input type="text" class="form-control" [(ngModel)]="query"  placeholder="Filter Track...">
+  <div *ngFor="let tk of talk | search:'id,tk.track.label':query">{{tk.track.label}}</div>
+  </div>
+  <br/> -->
   <span class="badge badge-info float-right">More Filter:</span>
   <br/>
-  <select class='select-option form-control' [(ngModel)]="term2">
+  <select class="select-option form-control" [(ngModel)]="term2">
     <option selected>Choose...</option>
     <option class='option' *ngFor='let tk of talk | unique'>{{tk.mainSpeaker}}</option>
   </select>
@@ -26,9 +28,10 @@
     Show All The Talks
   </label>
   </div>
-
+  <br/>
+  
  <div *ngIf="!show">
-  <div class="card" *ngFor="let tk of talk |filter:term |filter:term2 " draggable [dragula]='"bag-task1"'>
+  <div class="card" *ngFor="let tk of talk | filter:term |filter:term2" draggable [dragula]='"section-bag"'>
     <div class="card-body mb-3">
              <h3>{{ tk.title }}</h3>
              <h2><a  routerLink="/talkDetail/{{tk.id}}">{{tk.id}}</a></h2>

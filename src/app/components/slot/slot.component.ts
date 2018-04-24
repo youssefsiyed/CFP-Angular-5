@@ -19,15 +19,11 @@ export class SlotComponent implements OnInit {
 
   ngOnInit() {
     this.slotService.getSlots().subscribe(slot =>{
-      //if (_lo.uniq(slot)) {
-        // var filtered =  _.uniqWith(slot, _.isEqual);
-        // console.log(filtered);
       this.slot = slot;
-      this.showSpinner = false;   
-      //}
+      this.showSpinner = false;
   })
 }
-
+/////////////////////////////////////////////////////////////////
 toggleVisibility(e){
   this.showCheck= e.target.checked;
 }

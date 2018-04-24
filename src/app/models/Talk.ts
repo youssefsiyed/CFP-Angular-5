@@ -14,12 +14,12 @@ export interface Talk {
     privateMessage: string,
     state: {
         code: string
-        },
-        sponsorTalk: boolean,
-        track: {
-            id: number,
-            label: string,
-        },
+    },
+    sponsorTalk: boolean,
+    track: {
+         id: number,
+        label: string,
+    },
     demoLevel: string,
     preferences: string
 

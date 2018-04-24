@@ -21,4 +21,8 @@ export class SlotService {
   getSlots() : Observable<Slot[]> {
     return this.http.get<Slot[]>(this.soltsUrl);
   }
+  /////////////////////////// All Slot
+  getAllSlots(schedulling :Slot[]){
+  return this.http.post(this.soltsUrl,schedulling);
+  }
 }
