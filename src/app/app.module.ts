@@ -54,7 +54,7 @@ const appRoutes : Routes =[
     NgPipesModule,
     Ng2SearchPipeModule,
     NgSpinKitModule,
-    RouterModule.forRoot(appRoutes,{useHash : true})
+    RouterModule.forRoot(appRoutes,{useHash : true}) // ,{preloadingStrategy : PreLoadAllModules} to load all modules
   ],
   providers: [TalkService, SlotService, AllocateService],
   bootstrap: [AppComponent]

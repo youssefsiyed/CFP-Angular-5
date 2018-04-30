@@ -1,10 +1,10 @@
 <sk-folding-cube *ngIf="showSpinner"></sk-folding-cube>
 <div class="col-sm">
-  <h2>Talk Filter</h2> 
+  <h2>Talk Filter</h2>
   <span class="badge badge-pill badge-info float-right">Length : {{ talk?.length }}</span>
   <br/>
   <div>
-  <input type="text" class="form-control" [(ngModel)]="term" placeholder="Filter Talk...">
+    <input type="text" class="form-control" [(ngModel)]="term" placeholder="Filter Talk...">
   </div>
   <br/>
   <!-- <span class="badge badge-info float-right">Track Filter:</span>
@@ -23,25 +23,26 @@
   <br/>
 
   <div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" (click)="toggle()">
-    Show All The Talks
-  </label>
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" (click)="toggle()"> Show All The Talks
+    </label>
   </div>
   <br/>
-  
- <div *ngIf="!show">
-  <div class="card" *ngFor="let tk of talk | filter:term |filter:term2" draggable [dragula]='"section-bag"'>
-    <div class="card-body mb-3">
-             <h3>{{ tk.title }}</h3>
-             <h2><a  routerLink="/talkDetail/{{tk.id}}">{{tk.id}}</a></h2>
-             <span class="badge badge-danger">{{ tk.lang }}</span>
-             <span class="badge badge-warning">{{ tk.mainSpeaker }}</span>
-             <span class="badge badge-success">{{ tk.event }}</span>
-             <span class="badge badge-info">{{ tk.track.label}}</span>
-             <span class="badge badge-info">{{ tk.preferences | shorten: 29}}</span>
-             
+
+  <div *ngIf="!show" draggable [dragula]='"section-bag"'>
+    <div id="overdiv" class="card" *ngFor="let tk of talk | filter:term |filter:term2">
+      <div class="card-body mb-3">
+        <h3>{{ tk.title }}</h3>
+        <h2>
+          <a routerLink="/talkDetail/{{tk.id}}">{{tk.id}}</a>
+        </h2>
+        <span class="badge badge-danger">{{ tk.lang }}</span>
+        <span class="badge badge-warning">{{ tk.mainSpeaker }}</span>
+        <span class="badge badge-success">{{ tk.event }}</span>
+        <span class="badge badge-info">{{ tk.track.label}}</span>
+        <span class="badge badge-info">{{ tk.preferences | shorten: 29}}</span>
+
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
-  </div>
+</div>
