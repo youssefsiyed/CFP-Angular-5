@@ -1,0 +1,48 @@
+.panel-default > .panel-heading {
+      background-color: #222222;
+      color: #FFF;
+    }
+
+    .panel-default {
+      border-color: #222222;
+    }
+
+    .input-group-addon {
+      background-color: #E1882C;
+      color: #FFF;
+      border: none;
+    }
+
+    .custom-thumbnail,.selected-thumbnail {
+      border-radius: 0;
+      padding: 0px 7px;
+      border: 1px solid rgba(225, 136, 44, 0.3);
+      border-left: 7px solid #E1882C;
+    }
+    .selected-thumbnail{
+      border: 0;
+    }
+    .proposal{
+      border: 1px solid #CCC;
+      vertical-align: middle;
+      border-radius: 4px;
+      min-height: 100px;
+      margin-top: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .slot{
+      display: flex;
+      align-items: center;
+    }
+    .delete{
+      position: absolute;
+      align-self: flex-start;
+      display: block;
+      margin-bottom: -15px;
+      top: 5px;
+      right: 20px;
+      color: #E62117;
+    }

@@ -1,0 +1,87 @@
+<app-header></app-header>
+<div class='wrapper'>
+  <div class="container">
+
+    <div class="col-lg-12 ng-scope">
+      <h3>All Slots</h3>
+      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+        <fa name="paper-plane"></fa>Save allocation</button>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Save Allocation</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            Allocation for bof saved !!!
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <div class="card" [draggable] *ngFor="let tk of talk" [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="tk"
+          [dragScope]="tk.id" [dragEnabled]="dragEnabled">
+
+          <div class="card-body">
+            <h3>{{ tk.title }}</h3>
+            <h2>
+              <a routerLink="/talkDetail/{{tk.id}}">{{tk.id}}</a>
+            </h2>
+            <p class="card-text">
+              <strong>{{ tk.mainSpeaker }}</strong>
+            </p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge badge-danger">{{ tk.lang }}</span>
+                <span class="badge badge-warning">{{ tk.mainSpeaker }}</span>
+                <span class="badge badge-success">{{ tk.event }}</span>
+              </li>
+              <li class="list-group-item">
+                <span class="badge badge-info">{{ tk.preferences | shorten: 29}}</span>
+                <span class="badge badge-info">{{ tk.track.label}}</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <input class="form-check-input" type="checkbox" value="" title="Drag Enabled" [(ngModel)]="dragEnabled">Drag Disabled
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" *ngFor="let so of slot" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'AZE-7421'" [dragHintClass]="'drag-hint'"
+          (onDrop)="onAnyDrop($event)">
+          <div class="card-body">
+            <span class="badge badge-warning">{{ so.day }}{{ so.to | date: 'dd/MM/yyyy hh:mm:ss' }}</span>
+            <span class="badge badge-primary">{{ so.room.name }}</span>
+            <span class="badge badge-success">{{ so.room.capacity }}</span>
+            <span class="badge badge-warning">{{ so.room.setup }}</span>
+            <span class="badge badge-danger">{{ so.room.recorded }}</span>
+          </div>
+          <div class="card-block scroll-list">
+            <li *ngFor="let item of droppedItems" class="list-group-item">
+              <span class="badge badge-light">{{item.title}}</span>
+              <span class="badge badge-success">{{ item.event }}</span>
+              <span class="badge badge-primary">{{item.id}}</span>
+            </li>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'DKH-5011'" [dragHintClass]="'drag-hint'"
+          (onDrop)="onAnyDrop($event)">
+          <div class="card-header card-inverse card-primary">Drop Anything here</div>
+          <div class="card-block scroll-list">
+            <li *ngFor="let item of droppedItems" class="list-group-item">{{item.id}}</li>
+          </div>
+        </div>
+      </div> -->
+
+    </div>

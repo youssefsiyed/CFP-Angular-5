@@ -22,7 +22,7 @@ const httpOptions = {
 })
 export class DragdropComponent implements OnInit {
   showCheck: boolean = false;
-  schedulling: Schedulling; 
+  schedulling: Schedulling;
   //schedullingAll : Schedulling
   //scheduls : Slot[];
   scheduls: Schedulling[];
